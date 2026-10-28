@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Username Manager</title>
+</head>
+<body>
+
+<h1>Username Manager</h1>
+
+<input id="first" placeholder="First name">
+<input id="last" placeholder="Last name">
+<button onclick="createUser()">Create Username</button>
+
+<p id="result"></p>
+
+<script>
+let usernames = [];
+
+function createUser() {
+  let first = document.getElementById("first").value;
+  let last = document.getElementById("last").value;
+
+  if (first == "" || last == "") {
+    document.getElementById("result").textContent = "Enter both names.";
+    return;}
+
+  let username = (first[0] + last).toLowerCase();
+
+  if (usernames.includes(username)) {
+    document.getElementById("result").textContent = "Username already exists.";
+    return;}
+
+  usernames.push(username);
+  document.getElementById("result").textContent =
+    "Your username is " + username;
+}
+</script>
+
+</body>
+</html>
